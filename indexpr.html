@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="script.js"></script>
+  <style>
+    form {
+      margin: 0 auto;
+      width: 50%;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      border: 2px solid coral;
+      border-radius: 5px;
+      background: ivory;
+      padding: 15px;
+    }
+
+    #rangeDeposit {
+      width: 100%;
+    }
+
+    input {
+      width: 100%;
+
+    }
+
+    button {
+      width: 100%;
+      border: 3px solid blue;
+      border-radius: 5px;
+      background-color: rgb(18, 122, 233);
+      height: 40px;
+      color: white;
+      font-size: 14pt;
+      background: white;
+      color: blue;
+    }
+
+    button:hover {
+      background-color: rgb(18, 122, 233);
+      color: white;
+      font-style: bold;
+    }
+
+    fieldset {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid coral;
+    }
+
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form name="calculation">
+    Начисленный процент <input type="number" id="profit" value="0" onchange="calculationProfit()">
+    <hr>
+    Сумма вклада <input type="number" id="deposit" min="10000" max="100000000" value="10000"
+      onchange="calculationProfit()">
+    <hr>
+    Годовая ставка по депозиту <input type="number" id="depositRate" onchange="calculationProfit()">
+    <hr>
+    Срок размещения денежных средств(в днях) <input type="number" id="period" onchange="calculationProfit()">
+    <hr>
+    Количество дней в отрезке времени, за который осуществляется капитализация<input type="number"
+      id="intervalCapitalization" onchange="calculationProfit()">
+    <hr>
+    Число дней в году <input type="number" id="daysInYear" value="365" min="365" max="365"
+      onchange="calculationProfit()">
+    <hr>
+    <fieldset>
+      <div>
+
+        С капитализацией
+        <div>
+          <input type="radio" name="choice" checked onclick="calculationProfit()">
+        </div>
+
+        Без капитализации
+        <div>
+          <input type="radio" name="choice" onclick="calculationProfit()">
+        </div>
+      </div>
+    </fieldset>
+    <hr>
+    <input type="range" id="rangeDeposit" value="0" min="10000" max="100000000" onchange="calculationProfit()">Размер
+    вклада
+    <hr>
+    <button type="button" onclick="calculationProfit()">Рассчитать</button>
+    <hr>
+  </form>
+</body>
+
+</html>
